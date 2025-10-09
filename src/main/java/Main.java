@@ -69,8 +69,7 @@ byte showMainMenu() {
 void performDepositAction() {
     // Attempt to read the user's choice,
     // handling the possibility that they did not input the correct data type.
-    // It is assigned an initial value of 0 to ensure that it is initialized.
-    double depositAmount = 0;
+    double depositAmount;
     try {
         System.out.print("Enter amount to deposit: $");
         depositAmount = scanner.nextDouble();
@@ -105,8 +104,7 @@ void performDepositAction() {
 void performWithdrawAction() {
     // Attempt to read the user's choice,
     // handling the possibility that they did not input the correct data type.
-    // It is assigned an initial value of 0 to ensure that it is initialized.
-    double withdrawAmount = 0;
+    double withdrawAmount;
     try {
         System.out.print("Enter amount to withdraw: $");
         withdrawAmount = scanner.nextDouble();
