@@ -2,7 +2,15 @@ void main() {
     showWelcomeMessage();
 
     final byte choice = showMainMenu();
-    IO.println("YOU CHOSE: " + choice);
+
+    // Only the cases below can be returned from `showMainMenu`.
+    // Validation, including error handling, is processed within said method
+    switch (choice) {
+        case 1 -> performDepositAction();
+        case 2 -> performWithdrawAction();
+        case 3 -> performCheckBalanceAction();
+        default -> {}  // Nothing yet. Carrying on will exit the program
+    }
 }
 
 void showWelcomeMessage() {
@@ -53,4 +61,16 @@ byte showMainMenu() {
 
     // `chosenAction` now contains a valid action between 1 and 4
     return chosenAction;
+}
+
+void performDepositAction() {
+    System.out.println("DEPOSIT ACTION");
+}
+
+void performWithdrawAction() {
+    System.out.println("WITHDRAW ACTION");
+}
+
+void performCheckBalanceAction() {
+    System.out.println("CHECK BALANCE ACTION");
 }
