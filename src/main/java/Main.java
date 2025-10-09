@@ -74,5 +74,5 @@ void performWithdrawAction() {
 }
 
 void performCheckBalanceAction() {
-    System.out.println("CHECK BALANCE ACTION");
+    System.out.printf("Your current balance: $%.2f\n", balance);
 }
