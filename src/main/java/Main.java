@@ -1,3 +1,6 @@
+final Scanner scanner = new Scanner(System.in);
+double balance = 1_000;
+
 void main() {
     showWelcomeMessage();
 
@@ -16,7 +19,7 @@ void main() {
 void showWelcomeMessage() {
     System.out.println("Welcome to FinCore CLI Banking!");
     System.out.println("Account Holder: Alex Doe");
-    System.out.println("Initial Balance: $1000");
+    System.out.printf("Initial Balance: $%.2f\n", balance);
 }
 
 byte showMainMenu() {
@@ -40,7 +43,6 @@ byte showMainMenu() {
         // Attempt to read the user's choice,
         // handling the possibility that they did not input the correct data type.
         try {
-            var scanner = new Scanner(System.in);
             chosenAction = scanner.nextByte();
         } catch (InputMismatchException e) {  // If the user's input does not match the Integer regular expression
             System.out.println("Invalid action; must be a number.");
