@@ -1,3 +1,4 @@
+final double SUSPICIOUS_DEPOSIT_AMOUNT = 10_000;
 final Scanner scanner = new Scanner(System.in);
 double balance = 1_000;
 
@@ -66,11 +67,74 @@ byte showMainMenu() {
 }
 
 void performDepositAction() {
-    System.out.println("DEPOSIT ACTION");
+    // Attempt to read the user's choice,
+    // handling the possibility that they did not input the correct data type.
+    // It is assigned an initial value of 0 to ensure that it is initialized.
+    double depositAmount = 0;
+    try {
+        System.out.print("Enter amount to deposit: $");
+        depositAmount = scanner.nextDouble();
+    } catch (InputMismatchException e) {
+        System.out.println("Invalid deposit amount");
+
+        // Unlike in `showMainMenu`, user input is not looped until they enter a valid number.
+        // This is because:
+        // 1) It is quick to get back to this input should they have mistyped;
+        // 2) The user can this way deliberately enter an invalid amount to abort the deposit.
+        return;
+    }
+
+    // Ensure the user does not deposit more money than is suspicious
+    // (for fraud detection purposes)
+    if (depositAmount > SUSPICIOUS_DEPOSIT_AMOUNT) {
+        System.out.printf("You cannot deposit more than $%.2f using this program", SUSPICIOUS_DEPOSIT_AMOUNT);
+        System.out.println("Please come into one of our branches in person");
+
+        // User input is not looped (see comment above previous `return` statement)
+        return;
+    }
+
+    // Perform deposit
+    balance += depositAmount;
+
+    System.out.println("Deposit successful.");
+    System.out.printf("Amount deposited: $%.2f\n", depositAmount);
+    System.out.printf("New balance: $%.2f\n", balance);
 }
 
 void performWithdrawAction() {
-    System.out.println("WITHDRAW ACTION");
+    // Attempt to read the user's choice,
+    // handling the possibility that they did not input the correct data type.
+    // It is assigned an initial value of 0 to ensure that it is initialized.
+    double withdrawAmount = 0;
+    try {
+        System.out.print("Enter amount to withdraw: $");
+        withdrawAmount = scanner.nextDouble();
+    } catch (InputMismatchException e) {
+        System.out.println("Invalid withdraw amount");
+
+        // Unlike in `showMainMenu`, user input is not looped until they enter a valid number.
+        // This is because:
+        // 1) It is quick to get back to this input should they have mistyped;
+        // 2) The user can this way deliberately enter an invalid amount to abort the deposit.
+        return;
+    }
+
+    // Ensure the user does not withdraw more money than they have
+    if (withdrawAmount > balance) {
+        System.out.println("You cannot withdraw more money than you have");
+        System.out.println("Consider enabling overdraft for your account");
+
+        // User input is not looped (see comment above previous `return` statement)
+        return;
+    }
+
+    // Perform withdraw
+    balance -= withdrawAmount;
+
+    System.out.println("Withdrawal successful.");
+    System.out.printf("Amount withdrawn: $%.2f\n", withdrawAmount);
+    System.out.printf("New balance: $%.2f\n", balance);
 }
 
 void performCheckBalanceAction() {
