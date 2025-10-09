@@ -35,19 +35,20 @@ byte showMainMenu() {
             var scanner = new Scanner(System.in);
             chosenAction = scanner.nextByte();
         } catch (InputMismatchException e) {  // If the user's input does not match the Integer regular expression
-            System.err.println("Invalid action; must be a number.");
+            System.out.println("Invalid action; must be a number.");
+            continue;
         }
 
         // Validate that the action entered by the user is within the accepted range
         final boolean actionTooLow = chosenAction < 1;
         final boolean actionTooHigh = chosenAction > 4;
         if (actionTooLow || actionTooHigh) {
-            // Action was invalid
-            System.err.println("Invalid action; must be between 1 and 4.");
-        } else {
-            // Action was valid
-            userInputIsValid = true;
+            System.out.println("Invalid action; must be between 1 and 4.");
+            continue;
         }
+
+        // If this point is reached then all checks have passed, so the user has entered a valid action
+        userInputIsValid = true;
     }
 
     // `chosenAction` now contains a valid action between 1 and 4
