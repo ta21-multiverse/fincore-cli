@@ -5,6 +5,7 @@ double balance = 1_000;
 void main() {
     showWelcomeMessage();
 
+    // Process actions from the user until they wish to quit
     boolean applicationShouldQuit = false;
     while (!applicationShouldQuit) {
         final byte choice = showMainMenu();
