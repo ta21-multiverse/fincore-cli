@@ -5,16 +5,21 @@ double balance = 1_000;
 void main() {
     showWelcomeMessage();
 
-    final byte choice = showMainMenu();
+    boolean applicationShouldQuit = false;
+    while (!applicationShouldQuit) {
+        final byte choice = showMainMenu();
 
-    // Only the cases below can be returned from `showMainMenu`.
-    // Validation, including error handling, is processed within said method
-    switch (choice) {
-        case 1 -> performDepositAction();
-        case 2 -> performWithdrawAction();
-        case 3 -> performCheckBalanceAction();
-        default -> {}  // Nothing yet. Carrying on will exit the program
+        // Only the cases below can be returned from `showMainMenu`.
+        // Validation, including error handling, is processed within said method
+        switch (choice) {
+            case 1 -> performDepositAction();
+            case 2 -> performWithdrawAction();
+            case 3 -> performCheckBalanceAction();
+            default -> applicationShouldQuit = true;
+        }
     }
+
+    System.out.println("Thank you for banking using FinCore CLI");
 }
 
 void showWelcomeMessage() {
