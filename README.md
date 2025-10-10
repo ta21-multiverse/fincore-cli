@@ -1,7 +1,7 @@
 # FinCore CLI
 
-FinCore CLI is a budget management application managed through a command-line interface. Its goal is to enable the
-management and tracking of enterprise budgets.
+FinCore CLI is a banking application managed through a command-line interface. It allows you to deposit into and
+withdraw from your account.
 
 ## Project Structure
 
