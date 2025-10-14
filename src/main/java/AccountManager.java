@@ -10,13 +10,13 @@ public class AccountManager {
     private static final Scanner scanner = new Scanner(System.in);
 
     // The account to perform actions on
-    final BankAccount account;
+    private final BankAccount account;
 
     public AccountManager(BankAccount account) {
         this.account = account;
     }
 
-    void depositAction() {
+    public void depositAction() {
         // Attempt to read the user's choice,
         // handling the possibility that they did not input the correct data type.
         double depositAmount;
@@ -50,7 +50,7 @@ public class AccountManager {
         System.out.printf("New balance: $%.2f\n", this.account.getBalance());
     }
 
-    void withdrawAction() {
+    public void withdrawAction() {
         // Attempt to read the user's choice,
         // handling the possibility that they did not input the correct data type.
         double withdrawAmount;
@@ -85,7 +85,7 @@ public class AccountManager {
         System.out.printf("New balance: $%.2f\n", this.account.getBalance());
     }
 
-    void checkBalanceAction() {
+    public void checkBalanceAction() {
         // Get balance from account
         final double balance = this.account.getBalance();
 
