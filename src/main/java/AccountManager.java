@@ -6,6 +6,9 @@ import java.util.Scanner;
  * Handles the user input and other tasks that would be less appropriate to be on the BankAccount class.
  */
 public class AccountManager {
+    // Scanner for use by all instances so they don't need to create a new one each time
+    private static final Scanner scanner = new Scanner(System.in);
+
     // The account to perform actions on
     final BankAccount account;
 
@@ -19,7 +22,7 @@ public class AccountManager {
         double depositAmount;
         try {
             System.out.print("Enter amount to deposit: $");
-            depositAmount = new Scanner(System.in).nextDouble();
+            depositAmount = scanner.nextDouble();
         } catch (InputMismatchException e) {
             System.out.println("Invalid deposit amount");
 
@@ -54,7 +57,7 @@ public class AccountManager {
         try {
             System.out.print("Enter amount to withdraw: $");
             // REFACTOR OUT SCANNER
-            withdrawAmount = new Scanner(System.in).nextDouble();
+            withdrawAmount = scanner.nextDouble();
         } catch (InputMismatchException e) {
             System.out.println("Invalid withdraw amount");
 
