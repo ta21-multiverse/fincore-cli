@@ -25,7 +25,7 @@ public class Menu {
         // Show menu choices
         for (int choiceIndex = 0; choiceIndex < this.choices.length; choiceIndex++) {
             final String choiceText = this.choices[choiceIndex];
-            System.out.println(choiceIndex + ". " + choiceText);
+            System.out.println(choiceIndex + 1 + ". " + choiceText);
         }
 
         // The user's input is enclosed in a loop so that if the user inputs incorrectly,
