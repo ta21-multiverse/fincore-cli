@@ -1,4 +1,4 @@
-package io.github.ta21multiverse.fincorecli;
+package io.github.ta21multiverse.fincorecli.model;
 
 public class BankAccount {
     // Constants

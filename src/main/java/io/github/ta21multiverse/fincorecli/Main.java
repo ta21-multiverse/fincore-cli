@@ -1,7 +1,12 @@
 package io.github.ta21multiverse.fincorecli;
 
+import io.github.ta21multiverse.fincorecli.model.BankAccount;
+import io.github.ta21multiverse.fincorecli.model.User;
+import io.github.ta21multiverse.fincorecli.service.AccountManager;
+import io.github.ta21multiverse.fincorecli.ui.Menu;
+
 public class Main {
-    // io.github.ta21multiverse.fincorecli.Menu declarations
+    // io.github.ta21multiverse.fincorecli.ui.Menu declarations
     // These are constants in a way, as they are configured here to use for all times the program is run
     static final Menu mainMenu = new Menu("FinCore CLI", new String[]{
             "Deposit",

@@ -1,11 +1,13 @@
-package io.github.ta21multiverse.fincorecli;
+package io.github.ta21multiverse.fincorecli.service;
+
+import io.github.ta21multiverse.fincorecli.model.BankAccount;
 
 import java.util.InputMismatchException;
 import java.util.Scanner;
 
 /**
- * Performs actions on a io.github.ta21multiverse.fincorecli.BankAccount.
- * Handles the user input and other tasks that would be less appropriate to be on the io.github.ta21multiverse.fincorecli.BankAccount class.
+ * Performs actions on a io.github.ta21multiverse.fincorecli.model.BankAccount.
+ * Handles the user input and other tasks that would be less appropriate to be on the io.github.ta21multiverse.fincorecli.model.BankAccount class.
  */
 public class AccountManager {
     // Scanner for use by all instances so they don't need to create a new one each time
