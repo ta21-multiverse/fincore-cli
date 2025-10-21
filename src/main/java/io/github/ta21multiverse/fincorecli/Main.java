@@ -1,5 +1,7 @@
+package io.github.ta21multiverse.fincorecli;
+
 public class Main {
-    // Menu declarations
+    // io.github.ta21multiverse.fincorecli.Menu declarations
     // These are constants in a way, as they are configured here to use for all times the program is run
     static final Menu mainMenu = new Menu("FinCore CLI", new String[]{
             "Deposit",

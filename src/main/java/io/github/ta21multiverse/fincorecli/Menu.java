@@ -1,3 +1,5 @@
+package io.github.ta21multiverse.fincorecli;
+
 import java.util.InputMismatchException;
 import java.util.Scanner;
 
@@ -8,7 +10,7 @@ public class Menu {
     // Scanner for use by all instances so they don't need to create a new one each time
     private static final Scanner scanner = new Scanner(System.in);
 
-    // Menu Configuration Fields
+    // io.github.ta21multiverse.fincorecli.Menu Configuration Fields
     // (marked `final` because they only need to be set once)
     private final String name;
     private final String[] choices;

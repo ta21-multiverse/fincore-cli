@@ -1,3 +1,5 @@
+package io.github.ta21multiverse.fincorecli;
+
 import java.util.regex.Pattern;
 
 public class User {

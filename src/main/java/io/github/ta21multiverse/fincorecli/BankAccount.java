@@ -1,3 +1,5 @@
+package io.github.ta21multiverse.fincorecli;
+
 public class BankAccount {
     // Constants
     static final double INITIAL_BALANCE = 1_000;
