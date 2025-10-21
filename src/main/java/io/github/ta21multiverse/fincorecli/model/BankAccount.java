@@ -28,7 +28,7 @@ public class BankAccount {
     }
 
     // Balance manipulation methods
-    void deposit(double amount) throws IllegalArgumentException {
+    public void deposit(double amount) throws IllegalArgumentException {
         // Ensure the user does not deposit more money than is suspicious
         // (for fraud detection purposes)
         if (amount > SUSPICIOUS_DEPOSIT_AMOUNT) {
@@ -44,7 +44,7 @@ public class BankAccount {
         balance += amount;
     }
 
-    void withdraw(double amount) throws IllegalArgumentException {
+    public void withdraw(double amount) throws IllegalArgumentException {
         // Ensure the user does not withdraw more money than they have
         if (amount > balance) {
             final String errorMessage = "You cannot withdraw more money than you have\n" +
