@@ -2,8 +2,8 @@ package io.github.ta21multiverse.fincorecli.model;
 
 public class BankAccount {
     // Constants
-    public static final double INITIAL_BALANCE = 1_000;
-    public static final double SUSPICIOUS_DEPOSIT_AMOUNT = 10_000;
+    static final double INITIAL_BALANCE = 1_000;
+    static final double SUSPICIOUS_DEPOSIT_AMOUNT = 10_000;
 
     // Fields
     private double balance;
