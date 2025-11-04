@@ -42,7 +42,15 @@ public class User {
     }
 
     public void setPhoneNumber(String phoneNumber) throws IllegalArgumentException {
-        // Validate phone number
+        // Validate phone number not empty
+        if (phoneNumber.isEmpty()) {
+            throw new IllegalArgumentException("Invalid phone number");
+        }
+
+        // Remove spaces
+        phoneNumber = phoneNumber.replaceAll("\\s+","");
+
+        // Validate phone number in correct format
         if (!(phoneNumber.startsWith("+") || Character.isDigit(phoneNumber.charAt(0)))) {
             throw new IllegalArgumentException("Invalid phone number");
         }
