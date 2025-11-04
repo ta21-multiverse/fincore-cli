@@ -36,15 +36,12 @@ public class TestBankAccount {
     @Test
     @DisplayName("deposit: Upper boundary deposit amount should be invalid")
     void testUpperBoundDeposit() {
-        // After adding `amountToAdd`, the balance should be `SUSPICIOUS_DEPOSIT_AMOUNT`, the exact boundary
-        final double amountToAdd = BankAccount.SUSPICIOUS_DEPOSIT_AMOUNT - BankAccount.INITIAL_BALANCE;
-
-        assertThrows(IllegalArgumentException.class, () -> account.deposit(amountToAdd));
+        assertThrows(IllegalArgumentException.class, () -> account.deposit(BankAccount.SUSPICIOUS_DEPOSIT_AMOUNT));
     }
 
     @Test
     @DisplayName("deposit: Invalid deposit amount (too high)")
     void testInvalidDeposit() {
-        assertThrows(IllegalAccessError.class, () -> account.deposit(BankAccount.SUSPICIOUS_DEPOSIT_AMOUNT));
+        assertThrows(IllegalArgumentException.class, () -> account.deposit(BankAccount.SUSPICIOUS_DEPOSIT_AMOUNT + 100));
     }
 }
