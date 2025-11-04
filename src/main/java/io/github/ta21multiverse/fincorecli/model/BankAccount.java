@@ -29,9 +29,14 @@ public class BankAccount {
 
     // Balance manipulation methods
     public void deposit(double amount) throws IllegalArgumentException {
+        // Ensure amount not negative
+        if (amount < 0) {
+            throw new IllegalArgumentException("You cannot deposit a negative amount");
+        }
+
         // Ensure the user does not deposit more money than is suspicious
         // (for fraud detection purposes)
-        if (amount > SUSPICIOUS_DEPOSIT_AMOUNT) {
+        if (amount >= SUSPICIOUS_DEPOSIT_AMOUNT) {
             final String errorMessage = String.format(
                     "You cannot deposit more than $%.2f using this program\n" +
                             "Please come into one of our branches in person",
