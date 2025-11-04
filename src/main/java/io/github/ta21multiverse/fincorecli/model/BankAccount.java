@@ -50,6 +50,11 @@ public class BankAccount {
     }
 
     public void withdraw(double amount) throws IllegalArgumentException {
+        // Ensure amount not negative
+        if (amount < 0) {
+            throw new IllegalArgumentException("You cannot deposit a negative amount");
+        }
+
         // Ensure the user does not withdraw more money than they have
         if (amount > balance) {
             final String errorMessage = "You cannot withdraw more money than you have\n" +
