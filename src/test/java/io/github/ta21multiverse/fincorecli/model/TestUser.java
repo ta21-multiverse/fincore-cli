@@ -45,4 +45,38 @@ public class TestUser {
     void testEmptyEmail() {
         assertThrows(IllegalArgumentException.class, () -> user.setEmailAddress(""));
     }
+
+
+    @Test
+    @DisplayName("setPhoneNumber: Valid number (international format)")
+    void testValidNumberInternationalFormat() {
+        user.setPhoneNumber("+442071234567");
+        assertEquals("+442071234567", user.getPhoneNumber());
+    }
+
+    @Test
+    @DisplayName("setPhoneNumber: Valid number (domestic format)")
+    void testValidNumberDomesticFormat() {
+        user.setPhoneNumber("01632960001");
+        assertEquals("01632960001", user.getPhoneNumber());
+    }
+
+    @Test
+    @DisplayName("setPhoneNumber: Valid number (domestic format with spaces)")
+    void testValidNumberDomesticFormatWithSpaces() {
+        user.setPhoneNumber("020 7123 4567");
+        assertEquals("02071234567", user.getPhoneNumber());
+    }
+
+    @Test
+    @DisplayName("setPhoneNumber: Invalid number (non-digit characters)")
+    void testInvalidNumber() {
+        assertThrows(IllegalArgumentException.class, () -> user.setPhoneNumber("-442071234567"));
+    }
+
+    @Test
+    @DisplayName("setPhoneNumber: Invalid number (empty string)")
+    void testEmptyNumber() {
+        assertThrows(IllegalArgumentException.class, () -> user.setPhoneNumber(""));
+    }
 }
