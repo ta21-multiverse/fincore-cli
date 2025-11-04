@@ -13,6 +13,7 @@ public class TestBankAccount {
         account = new BankAccount(new User("User", "user@example.com", "01632 960 001"));
     }
 
+
     @Test
     @DisplayName("deposit: Negative amount should be invalid")
     void testNegativeDeposit() {
@@ -43,5 +44,42 @@ public class TestBankAccount {
     @DisplayName("deposit: Invalid deposit amount (too high)")
     void testInvalidDeposit() {
         assertThrows(IllegalArgumentException.class, () -> account.deposit(BankAccount.SUSPICIOUS_DEPOSIT_AMOUNT + 100));
+    }
+
+
+    @Test
+    @DisplayName("withdraw: Negative amount should be invalid")
+    void testNegativeWithdrawal() {
+        assertThrows(IllegalArgumentException.class, () -> account.withdraw(-20));
+    }
+
+    @Test
+    @DisplayName("withdraw: Lower boundary withdraw amount should be valid")
+    void testZeroWithdrawal() {
+        final double balanceBefore = account.getBalance();
+        account.withdraw(0);
+        assertEquals(balanceBefore, account.getBalance());
+    }
+
+    @Test
+    @DisplayName("withdraw: Valid withdraw amount")
+    void testValidWithdrawal() {
+        account.withdraw(100);
+        assertEquals(BankAccount.INITIAL_BALANCE - 100, account.getBalance());
+    }
+
+    @Test
+    @DisplayName("deposit: Upper boundary withdraw amount should be valid")
+    void testUpperBoundWithdrawal() {
+        // Withdraw all
+        account.withdraw(BankAccount.INITIAL_BALANCE);
+
+        assertEquals(0, account.getBalance());
+    }
+
+    @Test
+    @DisplayName("deposit: Invalid deposit amount (more than the current balance)")
+    void testInvalidWithdrawal() {
+        assertThrows(IllegalArgumentException.class, () -> account.withdraw(BankAccount.INITIAL_BALANCE + 100));
     }
 }
